@@ -29,15 +29,26 @@ header h1 {
 }
 
 main {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 30px;
-  justify-content: center;
 }
 
 @media (min-width: 768px) {
   main {
     grid-template-columns: 2fr 1fr;
+  }
+
+  #activities-container {
+    grid-column: 1;
+  }
+
+  #signup-container {
+    grid-column: 2;
+  }
+
+  #stats-container {
+    grid-column: 1 / -1;
   }
 }
 
@@ -47,7 +58,6 @@ section {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 500px;
 }
 
 section h3 {
@@ -65,9 +75,27 @@ section h3 {
   background-color: #f9f9f9;
 }
 
-.activity-card h4 {
+.activity-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 10px;
+}
+
+.activity-card h4 {
   color: #0066cc;
+  margin: 0;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #e8eaf6;
+  color: #3949ab;
+  white-space: nowrap;
 }
 
 .activity-card p {
@@ -197,4 +225,70 @@ footer {
   margin-top: 30px;
   padding: 20px;
   color: #666;
+}
+
+/* Toolbar styles */
+#activities-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#activities-toolbar input,
+#activities-toolbar select {
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  flex: 1;
+  min-width: 140px;
+}
+
+#search-input {
+  flex: 2;
+}
+
+/* Statistics section */
+#stats-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+@media (min-width: 480px) {
+  #stats-summary {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background-color: #e8eaf6;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1a237e;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #555;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#chart-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
 }

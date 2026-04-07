@@ -15,6 +15,21 @@
     <main>
       <section id="activities-container">
         <h3>Available Activities</h3>
+        <div id="activities-toolbar">
+          <input type="text" id="search-input" placeholder="Search activities..." />
+          <select id="category-filter">
+            <option value="">All Categories</option>
+            <option value="Academic">Academic</option>
+            <option value="Sports">Sports</option>
+            <option value="Arts">Arts</option>
+          </select>
+          <select id="sort-select">
+            <option value="name-asc">Name (A–Z)</option>
+            <option value="name-desc">Name (Z–A)</option>
+            <option value="spots-desc">Most Spots Available</option>
+            <option value="spots-asc">Fewest Spots Available</option>
+          </select>
+        </div>
         <div id="activities-list">
           <!-- Activities will be loaded here -->
           <p>Loading activities...</p>
@@ -39,12 +54,38 @@
         </form>
         <div id="message" class="hidden"></div>
       </section>
+
+      <section id="stats-container">
+        <h3>Participation Statistics</h3>
+        <div id="stats-summary">
+          <div class="stat-card">
+            <span class="stat-value" id="stat-total-activities">–</span>
+            <span class="stat-label">Activities</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="stat-total-participants">–</span>
+            <span class="stat-label">Total Participants</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="stat-total-capacity">–</span>
+            <span class="stat-label">Total Capacity</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="stat-fill-rate">–</span>
+            <span class="stat-label">Fill Rate</span>
+          </div>
+        </div>
+        <div id="chart-container">
+          <canvas id="stats-chart"></canvas>
+        </div>
+      </section>
     </main>
 
     <footer>
       <p>&copy; 2026 Mergington High School</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
